@@ -72,12 +72,13 @@ namespace LiveStreamingServerNet.KubernetesOperator.Services
 
                         OwnerReferences = new List<V1OwnerReference>
                         {
-                            new V1OwnerReference(
-                                apiVersion: entity.ApiVersion,
-                                kind: entity.Kind,
-                                name: entity.Name(),
-                                uid: entity.Uid()
-                            )
+                            new V1OwnerReference
+                            {
+                                ApiVersion = entity.ApiVersion,
+                                Kind = entity.Kind,
+                                Name = entity.Name(),
+                                Uid = entity.Uid()
+                            }
                         }
                     },
                     Spec = template.Spec,

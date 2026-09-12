@@ -24,7 +24,7 @@ namespace LiveStreamingServerNet.KubernetesOperator.Services
             foreach (var container in template.Spec.Containers)
             {
                 container.Env ??= new List<V1EnvVar>();
-                container.Env.Add(new V1EnvVar(PodConstants.StreamsLimitEnv, entity.Spec.PodStreamsLimit.ToString()));
+                container.Env.Add(new V1EnvVar { Name = PodConstants.StreamsLimitEnv, Value = entity.Spec.PodStreamsLimit.ToString() });
             }
 
             return template;

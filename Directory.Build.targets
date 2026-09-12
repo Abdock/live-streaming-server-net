@@ -2,6 +2,9 @@
   <PropertyGroup Condition=" '$(IsTestProject)' != 'true' AND ($(MSBuildProjectDirectory.EndsWith('Test')) OR $(MSBuildProjectDirectory.EndsWith('Tests'))) ">
     <IsTestProject>true</IsTestProject>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(IsTestProject)' == 'true' ">
+    <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
+  </PropertyGroup>
   <ItemGroup Condition=" '$(IsTestProject)' == 'true' ">
     <PackageReference Include="AutoFixture.AutoNSubstitute" />
     <PackageReference Include="FluentAssertions" />
